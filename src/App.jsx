@@ -24,6 +24,7 @@ export default function App() {
       .then((data) => setClientSecret(data.clientSecret));
   }, []);
 
+  console.log("asd")
   const appearance = {
     theme: 'stripe',
   };
