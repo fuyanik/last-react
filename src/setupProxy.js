@@ -1,11 +1,5 @@
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const proxy = require("http-proxy-middleware");
 
-module.exports = function(app) {
-  app.use(
-    '/create-payment-intent',
-    createProxyMiddleware({
-      target: 'http://localhost:4242',
-      changeOrigin: true
-    })
-  );
+module.exports = app => {
+  app.use(proxy("/create-payment-intent", { target: "http://localhost:4242/" }));
 };
